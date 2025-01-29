@@ -55,4 +55,4 @@ echo Java 11 or higher is required and not installed on this machine. Please ins
 exit /b 1
 
 :JAVA_INSTALLED
-"%java_path%\bin\java.exe" -jar "C:\Users\hadar\Desktop\selenium\selenium-server-4.17.0.jar" standalone
+"%java_path%\bin\java.exe" -jar "C:\Users\hadar\Desktop\yearB\atp\2025-mbt-ab\Selenium\selenium-server-4.17.0.jar" standalone

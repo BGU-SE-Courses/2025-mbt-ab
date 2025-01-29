@@ -29,7 +29,6 @@ function rankByMetGoals( ensemble ) {
     for ( let idx=0; idx<GOALS.length; idx++ ) {
         unreachedGoals.push(GOALS[idx]);
     }
-
     for (let testIdx = 0; testIdx < ensemble.length; testIdx++) {
         let test = ensemble[testIdx];
         for (let eventIdx = 0; eventIdx < test.length; eventIdx++) {
