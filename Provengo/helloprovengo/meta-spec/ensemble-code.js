@@ -5,18 +5,15 @@
  */
 const GOALS = [
     Ctrl.markEvent("Teacher loged in"),
-    Ctrl.markEvent("Choice Created"),
+    Ctrl.markEvent("Creating Choice Activity"),
+    Ctrl.markEvent("Choice Activity Added"),
     Ctrl.markEvent("Teacher done"),
     Ctrl.markEvent("Deleting Choice Activity"),
     Ctrl.markEvent("Choice Activity Deleted"),
-
     Ctrl.markEvent("Student loged in"),
     Ctrl.markEvent("Student answers choice"),
     Ctrl.markEvent("Student done")
 ];
-
-
-
 
 
 
@@ -53,14 +50,15 @@ function rankByMetGoals( ensemble ) {
 
 // Generate all possible two-way combinations
 let pairs = [
-    ["Teacher loged in", "Choice Created"],
+    ["Teacher loged in", "Creating Choice Activity"],
+    ["Teacher loged in", "Choice Activity Added"],
     ["Teacher loged in", "Teacher done"],
     ["Teacher loged in", "Student loged in"],
-    ["Choice Created", "Teacher done"],
-    ["Choice Created", "Student loged in"],
-    ["Choice Created", "Student answers choice"],
-    ["Choice Created", "Deleting Choice Activity"],
-    ["Choice Created", "Choice Activity Deleted"],
+    ["Creating Choice Activity", "Choice Activity Added"],
+    ["Creating Choice Activity", "Student loged in"],
+    ["Choice Activity Added", "Teacher done"],
+    ["Choice Activity Added", "Student loged in"],
+    ["Choice Activity Added", "Student answers choice"],
     ["Teacher done", "Student loged in"],
     ["Teacher done", "Student answers choice"],
     ["Teacher done", "Student done"],

@@ -1,17 +1,25 @@
 /* @provengo summon selenium */
 
+/* @provengo summon selenium */
+
 /**
  * Teacher creates a Choice Activity for testing deletion.
  */
 bthread('teacherCreateChoiceActivity', function() {
     let s = new SeleniumSession('teacherCreate')
     s.start(URL)
-    bp.sync({request: bp.Event("Creating Choice Activity")})
-    loginTeacher(s)
+    bp.sync({request: bp.Event("Creating Choice Activity")});
+    sync({ request: Ctrl.markEvent("Creating Choice Activity") });
+
+    loginTeacher(s);
+    bp.sync({ request: Ctrl.markEvent("Teacher loged in") });
+
     teacherCreatesChoiceActivity(s);
     s.close();
-    bp.sync({request: Ctrl.markEvent("Choice Created")})
-})
+
+    bp.sync({request: bp.Event("Choice Activity Added")});
+    sync({ request: Ctrl.markEvent("Choice Activity Added") });
+});
 
 /**
  * Teacher deletes the Choice Activity after it was created.
@@ -19,21 +27,27 @@ bthread('teacherCreateChoiceActivity', function() {
  * NOTE: This thread is blocked until the Choice Activity is created.
  */
 bthread('teacherDeleteChoiceActivity', function(){
-   bp.sync({waitFor: bp.Event("Choice Created")})
-  bp.sync({request: bp.Event("Deleting Choice Activity")})
-  let activityName = bp.store.get('activityName') // Retrieve the stored activity name
-  let s = new SeleniumSession('teacherDelete')
-  s.start(URL)
-  loginTeacher(s)
-  enterCourse(s)
-  enterEditMode(s)
-  deleteActivity(s, {activityName: "choice"})
-  logout(s)
-  s.close();
-  bp.sync({request: bp.Event("Choice Activity Deleted")})
-  bp.sync({request: bp.Event("bla bla")})
-})
+   bp.sync({waitFor: bp.Event("Choice Activity Added")});
+   bp.sync({request: bp.Event("Deleting Choice Activity")});
+   sync({ request: Ctrl.markEvent("Deleting Choice Activity") });
 
+   let activityName = bp.store.get('activityName'); // Retrieve the stored activity name
+   let s = new SeleniumSession('teacherDelete');
+   s.start(URL);
+
+   loginTeacher(s);
+   enterCourse(s);
+   enterEditMode(s);
+   deleteActivity(s, {activityName: "choice"});
+
+   logout(s);
+   s.close();
+
+   bp.sync({request: bp.Event("Choice Activity Deleted")});
+   sync({ request: Ctrl.markEvent("Choice Activity Deleted") });
+
+   bp.sync({request: bp.Event("bla bla")});
+});
 
 /**
  * Blocking the teacher from deleting the activity before it is created.
@@ -41,10 +55,11 @@ bthread('teacherDeleteChoiceActivity', function(){
  */
 bthread('ValidateDelete', function(){
   bp.sync({
-    waitFor: bp.Event("Choice Created"),
+    waitFor: bp.Event("Choice Activity Added"),
     block: [bp.Event("Deleting Choice Activity")]
   });
-})
+});
+
 
 bthread("Teacher Creates Choice Activity", function () {
    sync ({waitFor: Event("bla bla")});
