@@ -7,9 +7,10 @@ Run ```mvn test``` to run all the tests.
 ## Feature files
 The behaviors that we tested are in the feature files that inside the [resources/hellocucumber](resources/hellocucumber) directory. See the files for a detailed description of the tests.
 
-These feature files define the test scenarios in Gherkin syntax, covering the user interactions for:
+These feature files define the test scenarios covering the user interactions for:
 
 A student answering a choice activity
+
 A teacher deleting a choice activity
 
 ## Step files
