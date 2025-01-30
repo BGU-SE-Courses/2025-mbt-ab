@@ -27,7 +27,6 @@ bthread('teacherCreateChoiceActivity', function() {
  * NOTE: This thread is blocked until the Choice Activity is created.
  */
 bthread('teacherDeleteChoiceActivity', function(){
-   bp.sync({waitFor: bp.Event("Choice Activity Added")});
    bp.sync({request: bp.Event("Deleting Choice Activity")});
    sync({ request: Ctrl.markEvent("Deleting Choice Activity") });
 
@@ -46,7 +45,7 @@ bthread('teacherDeleteChoiceActivity', function(){
    bp.sync({request: bp.Event("Choice Activity Deleted")});
    sync({ request: Ctrl.markEvent("Choice Activity Deleted") });
 
-   bp.sync({request: bp.Event("bla bla")});
+   // bp.sync({request: bp.Event("bla bla")});
 });
 
 /**
@@ -55,35 +54,41 @@ bthread('teacherDeleteChoiceActivity', function(){
  */
 bthread('ValidateDelete', function(){
   bp.sync({
-    waitFor: bp.Event("Choice Activity Added"),
+    waitFor: bp.Event("Student done"),
     block: [bp.Event("Deleting Choice Activity")]
   });
 });
 
-
-bthread("Teacher Creates Choice Activity", function () {
-   sync ({waitFor: Event("bla bla")});
-  sync({ request: Event("Teacher start") });
-  let s = new SeleniumSession('teacherCreate')
-  s.start(URL)
-
-  sync({ request: Event("Teacher log in") });
-  loginTeacher(s);
-  sync({ request: Event("Teacher loged in") });
-  sync({ request: Ctrl.markEvent("Teacher loged in") });
-  sync({ request: Event("Creating Choice") });
-  teacherCreatesChoiceActivity(s);
-  sync({ request: Event("Choice Created") });
-  sync({ request: Ctrl.markEvent("Choice Created") });
-  s.close();
-  sync({ request: Event("Teacher done") });
-  sync({ request: Ctrl.markEvent("Teacher done") });
-
-
+bthread('ValidateStudent', function(){
+    bp.sync({
+        waitFor: bp.Event("Choice Activity Added"),
+        block: [bp.Event("Student answers choice")]
+    });
 });
 
+
+// bthread("Teacher Creates Choice Activity", function () {
+//    sync ({waitFor: Event("bla bla")});
+//   sync({ request: Event("Teacher start") });
+//   let s = new SeleniumSession('teacherCreate')
+//   s.start(URL)
+//
+//   sync({ request: Event("Teacher log in") });
+//   loginTeacher(s);
+//   sync({ request: Event("Teacher loged in") });
+//   sync({ request: Ctrl.markEvent("Teacher loged in") });
+//   sync({ request: Event("Creating Choice") });
+//   teacherCreatesChoiceActivity(s);
+//   sync({ request: Event("Choice Created") });
+//   sync({ request: Ctrl.markEvent("Choice Created") });
+//   s.close();
+//   sync({ request: Event("Teacher done") });
+//   sync({ request: Ctrl.markEvent("Teacher done") });
+//
+//
+// });
+
 bthread("Student Selects Choice", function () {
-  sync({ waitFor: Event("Choice Created") });
   sync({ request: Event("Student start") });
   let s = new SeleniumSession('studentCreate')
   s.start(URL)

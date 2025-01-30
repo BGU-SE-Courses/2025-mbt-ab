@@ -152,7 +152,7 @@ function teacherCreatesChoiceActivity(session) {
       // click(TEST_DATA.xpaths.choiceActivityLink);
       writeText(TEST_DATA.xpaths.nameField, "choice");
       scrollToBottom();
-      click(TEST_DATA.xpaths.availabilityDropdown);
+      // click(TEST_DATA.xpaths.availabilityDropdown);
       writeText(TEST_DATA.xpaths.option1Field, "1");
       click(TEST_DATA.xpaths.resultBar);
       click(TEST_DATA.xpaths.resultVisibility);
