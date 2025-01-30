@@ -249,7 +249,6 @@ public class StepDefinitions {
             System.out.println("The 'Your selection' box is not displayed.");
         }
     }
-
     @Then("the student should see a confirmation message")
     public void verifyConfirmationMessage() {
         try {

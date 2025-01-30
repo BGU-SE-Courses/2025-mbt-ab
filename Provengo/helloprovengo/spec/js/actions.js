@@ -15,6 +15,17 @@ function loginTeacher(session) {
     session.click(xpaths.login.loginButton);
 }
 
+function loginStudent(session) {
+    if (!USERS.student) {
+        console.error("Teacher credentials are missing!");
+        return;
+    }
+    session.click(xpaths.login.loginTab);
+    session.writeText(xpaths.login.userNameInput, USERS.student.username);
+    session.writeText(xpaths.login.passwordInput, USERS.student.password);
+    session.click(xpaths.login.loginButton);
+}
+
 
 function enterCourse(session) {
   session.click(xpaths.courses.myCoursesTab);
@@ -34,12 +45,8 @@ function addChoiceActivity(session) {
 function deleteActivity(session) {
   session.click(deleteAssignment.openMenu);
   session.click(deleteAssignment.deleteOption);
-
-  try {
-    session.click(deleteAssignment.confirmDelete1);
-  } catch (error) {
-    session.click(deleteAssignment.confirmDelete2);
-  }
+  session.waitForVisibility(deleteAssignment.confirmDelete1, 5000);
+  session.Click(deleteAssignment.confirmDelete1);
 }
 
 
@@ -113,7 +120,7 @@ function teacherCreatesChoiceActivity(session) {
   with (session) {
       click(TEST_DATA.xpaths.courseOverview);
       click(TEST_DATA.xpaths.specificCourse);
-      handleModalsIfPresent(session);
+      //handleModalsIfPresent(session);
       click(TEST_DATA.xpaths.editModeButton);
     //   scrollByAmount(0,50)
       scrollToElement(TEST_DATA.xpaths.clickOnPlus);
@@ -140,7 +147,9 @@ function studentSubmitsChoice(session) {
   with (session) {
       click(TEST_DATA.xpaths.courseOverview);
       click(TEST_DATA.xpaths.specificCourse);
-      handleModalsIfPresent(session);
+      //handleModalsIfPresent(session);
+      scrollToElement(TEST_DATA.xpaths.choiceActivityLink);
+      scrollByAmount(0,150);
       click(TEST_DATA.xpaths.choiceActivityLink);
       click("//input[@type='radio'][1]");
       click("/html/body/div[2]/div[4]/div/div[2]/div/section/div[2]/form/input[4]");
