@@ -18,11 +18,17 @@ A teacher deletes the choice activity, verifying that it is removed from the cou
 $$*TODO* Write instructions on how to install the software and prepare the testing environment$$
 
 User story: A student answers a choice activity.
+
 Preconditions: There is a course with an existing choice activity, and the student has access to participate in it.
+
 Expected outcome: The student successfully selects an option and submits their response. The selection is recorded.
 
+
 User story: A teacher deletes a choice activity.
-Preconditions: There is a course with an existing choice activity, and the teacher has the necessary permissions to delete activities.
+
+Preconditions: There is a course with an existing choice activity, and the teacher has the necessary permissions to delete 
+activities.
+
 Expected outcome: The choice activity is successfully deleted from the course and is no longer available to students.
 
 ## How we tested
