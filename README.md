@@ -24,7 +24,7 @@ https://download.moodle.org/windows/?_gl=1*1x9n0gr*_ga*MTA1Njg2MDk3Ni4xNzM2NTAyN
 we chose 4.5.1+ version
 
 install the server in the Moodle folder and chages paths in the reset files
-
+## What we tested
 User story: A student answers a choice activity.
 
 Preconditions: There is a course with an existing choice activity, and the student has access to participate in it.
