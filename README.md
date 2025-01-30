@@ -2,31 +2,28 @@
 This is a repository for the system-testing assignment of the Software Quality Engineering course at the [Ben-Gurion University](https://in.bgu.ac.il/), Israel.
 
 ## Assignment Description
-In this assignment, we tested an open-source software called [$$*TODO* software name$$](https://address-of-the-project.com).
+In this assignment, we tested an open-source software called Moodle.
 
-$$*TODO* Add some general description about the software$$
+Moodle is a free and open-source learning management system.
+Moodle is used for blended learning, distance education, flipped classroom and other online learning projects in schools, universities, workplaces and other sectors.
+Moodle is used to create custom websites with online courses and allows for community-sourced plugins.
+Moodle offers a variety of interactive tools, such as quizzes, assignments, and choice activities, to enhance learning experiences.
+Our testing focused on the choice activity feature, where students can select an option in response to a question, and teachers can manage these activities within their courses.
+Specifically, our tests validate the following user story:
+A student answers a choice activity, ensuring their selection is successfully recorded.
+A teacher deletes the choice activity, verifying that it is removed from the course.
+
 
 ## Installation
 $$*TODO* Write instructions on how to install the software and prepare the testing environment$$
 
-## What we tested
-$$*TODO* Add a description of the module and the user stories that you chose to test.
-For example, in the case of the Moodle example, you can write something like this:
+User story: A student answers a choice activity.
+Preconditions: There is a course with an existing choice activity, and the student has access to participate in it.
+Expected outcome: The student successfully selects an option and submits their response. The selection is recorded.
 
-We tested the quiz module that allows for creating and taking quizzes. We chose to test the following user stories: 
-
-*User story:* A teacher adds a new quiz to the course with two yes/no questions
-
-*Preconditions:* There is a course with a teacher
-
-*Expected outcome:* The quiz is added to the course.
-
-*User story:* A students attempts a quiz and answers correctly.
-
-*Preconditions:* There is a course with a quiz with two yes/no questions and the quiz grade is calculated automatically and the grade is visible to the students upon submission.
-
-*Expected outcome:* The student receives 100.
-$$
+User story: A teacher deletes a choice activity.
+Preconditions: There is a course with an existing choice activity, and the teacher has the necessary permissions to delete activities.
+Expected outcome: The choice activity is successfully deleted from the course and is no longer available to students.
 
 ## How we tested
 We used two different testing methods:
