@@ -44,7 +44,8 @@ bthread('teacherDeleteChoiceActivity', function(){
 
    bp.sync({request: bp.Event("Choice Activity Deleted")});
    sync({ request: Ctrl.markEvent("Choice Activity Deleted") });
-
+   bp.sync({request: bp.Event("Teacher done")});
+   sync({ request: Ctrl.markEvent("Teacher done") });
    // bp.sync({request: bp.Event("bla bla")});
 });
 

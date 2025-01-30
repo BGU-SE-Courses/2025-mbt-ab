@@ -52,20 +52,48 @@ function rankByMetGoals( ensemble ) {
 let pairs = [
     ["Teacher loged in", "Creating Choice Activity"],
     ["Teacher loged in", "Choice Activity Added"],
-    ["Teacher loged in", "Teacher done"],
     ["Teacher loged in", "Student loged in"],
+    ["Teacher loged in", "Student answers choice"],
+    ["Teacher loged in", "Student done"],
+    ["Teacher loged in", "Deleting Choice Activity"],
+    ["Teacher loged in", "Choice Activity Deleted"],
+    ["Teacher loged in", "Teacher done"],
+
     ["Creating Choice Activity", "Choice Activity Added"],
     ["Creating Choice Activity", "Student loged in"],
-    ["Choice Activity Added", "Teacher done"],
+    ["Creating Choice Activity", "Student answers choice"],
+    ["Creating Choice Activity", "Student done"],
+    ["Creating Choice Activity", "Deleting Choice Activity"],
+    ["Creating Choice Activity", "Choice Activity Deleted"],
+    ["Creating Choice Activity", "Teacher done"],
+
     ["Choice Activity Added", "Student loged in"],
     ["Choice Activity Added", "Student answers choice"],
-    ["Teacher done", "Student loged in"],
-    ["Teacher done", "Student answers choice"],
-    ["Teacher done", "Student done"],
-    ["Deleting Choice Activity", "Choice Activity Deleted"],
+    ["Choice Activity Added", "Student done"],
+    ["Choice Activity Added", "Deleting Choice Activity"],
+    ["Choice Activity Added", "Choice Activity Deleted"],
+    ["Choice Activity Added", "Teacher done"],
+
     ["Student loged in", "Student answers choice"],
     ["Student loged in", "Student done"],
-    ["Student answers choice", "Student done"]
+    ["Student loged in", "Deleting Choice Activity"],
+    ["Student loged in", "Choice Activity Deleted"],
+    ["Student loged in", "Teacher done"],
+
+    ["Student answers choice", "Student done"],
+    ["Student answers choice", "Deleting Choice Activity"],
+    ["Student answers choice", "Choice Activity Deleted"],
+    ["Student answers choice", "Teacher done"],
+
+    ["Student done", "Deleting Choice Activity"],
+    ["Student done", "Choice Activity Deleted"],
+    ["Student done", "Teacher done"],
+
+    ["Deleting Choice Activity", "Choice Activity Deleted"],
+    ["Deleting Choice Activity", "Teacher done"],
+
+    ["Choice Activity Deleted", "Teacher done"],
+
 ];
 
 
