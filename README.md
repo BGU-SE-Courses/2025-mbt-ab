@@ -15,7 +15,15 @@ A teacher deletes the choice activity, verifying that it is removed from the cou
 
 
 ## Installation
-$$*TODO* Write instructions on how to install the software and prepare the testing environment$$
+we followed the instractions from this link: 
+https://docs.moodle.org/405/en/Complete_install_packages_for_Windows?_gl=1*65l900*_ga*MTA1Njg2MDk3Ni4xNzM2NTAyNTM0*_ga_QWYJYEY9P5*MTczNjUwODY0MS4yLjEuMTczNjUwOTQyOC4wLjAuMA..
+
+we downloaded it from this link:
+https://download.moodle.org/windows/?_gl=1*1x9n0gr*_ga*MTA1Njg2MDk3Ni4xNzM2NTAyNTM0*_ga_QWYJYEY9P5*MTczNjUwODY0MS4yLjEuMTczNjUxMDI0My4wLjAuMA..
+
+we chose 4.5.1+ version
+
+install the server in the Moodle folder and chages paths in the reset files
 
 User story: A student answers a choice activity.
 
