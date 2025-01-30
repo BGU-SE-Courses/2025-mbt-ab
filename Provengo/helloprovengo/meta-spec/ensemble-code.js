@@ -49,7 +49,7 @@ function rankByMetGoals( ensemble ) {
 }
 
 // Generate all possible two-way combinations
-let pairs = [
+const pairs = [
     ["Teacher loged in", "Creating Choice Activity"],
     ["Teacher loged in", "Choice Activity Added"],
     ["Teacher loged in", "Student loged in"],
@@ -148,11 +148,11 @@ function rankByPairwiseCoverage(ensemble) {
  function rankingFunction(ensemble) {
 
     // How many goals did `ensemble` hit?
-    // const metGoalsCount = rankByMetGoals(ensemble);
+     //const metGoalsCount = rankByMetGoals(ensemble);
     const metPairsCount = rankByPairwiseCoverage(ensemble);
 
     // What percentage of the goals did `ensemble` cover?
-    const metGoalsPercent = metPairsCount/GOALS.length;
+    const metGoalsPercent = metPairsCount/pairs.length;
 
     return metGoalsPercent * 100; // convert to human-readable percentage
 }

@@ -30,14 +30,14 @@ bthread('teacherDeleteChoiceActivity', function(){
    bp.sync({request: bp.Event("Deleting Choice Activity")});
    sync({ request: Ctrl.markEvent("Deleting Choice Activity") });
 
-   let activityName = bp.store.get('activityName'); // Retrieve the stored activity name
-   let s = new SeleniumSession('teacherDelete');
-   s.start(URL);
+   //let activityName = bp.store.get('activityName'); // Retrieve the stored activity name
+   let s = new SeleniumSession('teacherDelete')
+   s.start(URL)
 
    loginTeacher(s);
    enterCourse(s);
    enterEditMode(s);
-   deleteActivity(s, {activityName: "choice"});
+   deleteActivity(s);
 
    logout(s);
    s.close();
