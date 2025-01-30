@@ -9,9 +9,9 @@ The behaviors that we tested are in the feature files that inside the [resources
 
 These feature files define the test scenarios covering the user interactions for:
 
-A student answering a choice activity
+1.A student answering a choice activity.
 
-A teacher deleting a choice activity
+2.A teacher deleting a choice activity.
 
 ## Step files
 The step files in the [src/test/java/hellocucumber](src/test/java/hellocucumber) directory contain the code that defines how each sentence in the feature files is translated to Selenium actions. See the files for a detailed description of the implementation.
