@@ -30,12 +30,15 @@ const xpaths = {
 
 };
 
+
 const deleteAssignment = {
   openMenu: "/html/body/div[4]/div[5]/div/div[3]/div/section/div/div/div/ul/li[1]/div[1]/div[2]/ul/li[2]/div[2]/div[2]/div[4]/div/div/div/div/a/i",
   deleteOption: "//li[2]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/a[8]",
-  confirmDelete1: "//button[contains(@class, 'btn-danger') and @data-action='delete']",
+  delete1: "/html/body/div[7]/div[2]/div/div/div[3]/button[2]",
+  delete2: "/html/body/div[8]/div[2]/div/div/div[3]/button[2]",
   confirmDeleteScrollCorrection: 20
 };
+
 
 const USERS = {
   teacher: {

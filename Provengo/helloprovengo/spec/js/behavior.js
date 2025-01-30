@@ -1,55 +1,53 @@
 /* @provengo summon selenium */
 
-///**
-// * Teacher creates a Choice Activity for testing deletion.
-// */
-//bthread('teacherCreateChoiceActivity', function() {
-//    let s = new SeleniumSession('teacherCreate')
-//    s.start(URL)
-//    bp.sync({request: bp.Event("Creating Choice Activity")})
-//    loginTeacher(s)
-//    teacherCreatesChoiceActivity(s);
-//    s.close();
-//    bp.sync({request: bp.Event("Choice Activity Added")})
-//
-//})
-//
-///**
-// * Teacher deletes the Choice Activity after it was created.
-// *
-// * NOTE: This thread is blocked until the Choice Activity is created.
-// */
-//bthread('teacherDeleteChoiceActivity', function(){
-//   bp.sync({waitFor: bp.Event("Choice Activity Added")})
-//  bp.sync({request: bp.Event("Deleting Choice Activity")})
-//  let activityName = bp.store.get('activityName') // Retrieve the stored activity name
-//  let s = new SeleniumSession('teacherDelete')
-//  s.start(URL)
-//  loginTeacher(s)
-//  enterCourse(s)
-//  enterEditMode(s)
-//  deleteActivity(s, {activityName: "choice"})
-//  logout(s)
-//  s.close();
-//  bp.sync({request: bp.Event("Choice Activity Deleted")})
-//  bp.sync({request: bp.Event("bla bla")})
-//
-//})
+/**
+ * Teacher creates a Choice Activity for testing deletion.
+ */
+bthread('teacherCreateChoiceActivity', function() {
+    let s = new SeleniumSession('teacherCreate')
+    s.start(URL)
+    bp.sync({request: bp.Event("Creating Choice Activity")})
+    loginTeacher(s)
+    teacherCreatesChoiceActivity(s);
+    s.close();
+    bp.sync({request: Ctrl.markEvent("Choice Created")})
+})
+
+/**
+ * Teacher deletes the Choice Activity after it was created.
+ *
+ * NOTE: This thread is blocked until the Choice Activity is created.
+ */
+bthread('teacherDeleteChoiceActivity', function(){
+   bp.sync({waitFor: bp.Event("Choice Created")})
+  bp.sync({request: bp.Event("Deleting Choice Activity")})
+  let activityName = bp.store.get('activityName') // Retrieve the stored activity name
+  let s = new SeleniumSession('teacherDelete')
+  s.start(URL)
+  loginTeacher(s)
+  enterCourse(s)
+  enterEditMode(s)
+  deleteActivity(s, {activityName: "choice"})
+  logout(s)
+  s.close();
+  bp.sync({request: bp.Event("Choice Activity Deleted")})
+  bp.sync({request: bp.Event("bla bla")})
+})
 
 
-///**
-// * Blocking the teacher from deleting the activity before it is created.
-// * Waiting until the teacher adds the Choice Activity.
-// */
-//bthread('ValidateDelete', function(){
-//  bp.sync({
-//    waitFor: bp.Event("Choice Activity Added"),
-//    block: [bp.Event("Deleting Choice Activity")]
-//  });
-//})
+/**
+ * Blocking the teacher from deleting the activity before it is created.
+ * Waiting until the teacher adds the Choice Activity.
+ */
+bthread('ValidateDelete', function(){
+  bp.sync({
+    waitFor: bp.Event("Choice Created"),
+    block: [bp.Event("Deleting Choice Activity")]
+  });
+})
 
 bthread("Teacher Creates Choice Activity", function () {
-   //sync ({waitFor: Event("bla bla")});
+   sync ({waitFor: Event("bla bla")});
   sync({ request: Event("Teacher start") });
   let s = new SeleniumSession('teacherCreate')
   s.start(URL)

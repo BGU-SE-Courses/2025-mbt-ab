@@ -45,9 +45,28 @@ function addChoiceActivity(session) {
 function deleteActivity(session) {
   session.click(deleteAssignment.openMenu);
   session.click(deleteAssignment.deleteOption);
-  session.waitForVisibility(deleteAssignment.confirmDelete1, 5000);
-  session.Click(deleteAssignment.confirmDelete1);
+  session.waitForVisibility(deleteAssignment.delete1, 5000);
+  attemptClickOnXpaths(session, deleteAssignment.delete1, deleteAssignment.delete2);
 }
+
+function attemptClickOnXpaths(session, primaryXPath, fallbackXPath) {
+    try {
+        session.scrollToElement(primaryXPath);
+        session.waitForVisibility(primaryXPath, 3000);
+        session.click(primaryXPath);
+    } catch (err) {
+        try {
+            session.scrollToElement(fallbackXPath);
+            session.waitForVisibility(fallbackXPath, 3000);
+            session.click(fallbackXPath);
+        } catch (error) {
+            console.log("Neither of the provided XPaths were clickable.");
+        }
+    }
+}
+
+
+
 
 
 function logout(session) {

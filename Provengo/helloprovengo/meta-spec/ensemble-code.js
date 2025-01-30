@@ -7,12 +7,17 @@ const GOALS = [
     Ctrl.markEvent("Teacher loged in"),
     Ctrl.markEvent("Choice Created"),
     Ctrl.markEvent("Teacher done"),
+    Ctrl.markEvent("Deleting Choice Activity"),
+    Ctrl.markEvent("Choice Activity Deleted"),
 
     Ctrl.markEvent("Student loged in"),
     Ctrl.markEvent("Student answers choice"),
     Ctrl.markEvent("Student done")
-
 ];
+
+
+
+
 
 
 /**
@@ -54,13 +59,19 @@ let pairs = [
     ["Choice Created", "Teacher done"],
     ["Choice Created", "Student loged in"],
     ["Choice Created", "Student answers choice"],
+    ["Choice Created", "Deleting Choice Activity"],
+    ["Choice Created", "Choice Activity Deleted"],
     ["Teacher done", "Student loged in"],
     ["Teacher done", "Student answers choice"],
     ["Teacher done", "Student done"],
+    ["Deleting Choice Activity", "Choice Activity Deleted"],
     ["Student loged in", "Student answers choice"],
     ["Student loged in", "Student done"],
     ["Student answers choice", "Student done"]
 ];
+
+
+
 
 pairs.forEach(([event1, event2]) => {
     bthread(`Pairwise Test (${event1}, ${event2})`, function () {
